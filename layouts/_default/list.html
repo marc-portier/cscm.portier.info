@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="phase-section">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <div class="steps-grid">
+      {{ range .Pages.ByWeight }}
+        {{ partial "step-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+

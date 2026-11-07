@@ -1,0 +1,738 @@
+:root {
+  --navy: #0F2C4C;
+  --navy-light: #1E3A5F;
+  --sand-bg: #F8FAFC;
+  --white: #FFFFFF;
+  --slate-text: #1E293B;
+  --slate-muted: #475569;
+  --border-subtle: #E2E8F0;
+
+  /* Fase 1: LEREN (Zonnig Duingeel) */
+  --leren-main: #F59E0B;
+  --leren-dark: #92400E;
+  --leren-bg: #FFFBEB;
+  --leren-border: #FDE68A;
+
+  /* Fase 2: PLANNEN (Helder Getijdenblauw) */
+  --plannen-main: #0284C7;
+  --plannen-dark: #075985;
+  --plannen-bg: #F0F9FF;
+  --plannen-border: #BAE6FD;
+
+  /* Fase 3: DOEN (Signaalboei Koraal/Roze) */
+  --doen-main: #E11D48;
+  --doen-dark: #9F1239;
+  --doen-bg: #FFF1F2;
+  --doen-border: #FECDD3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--slate-text);
+  background-color: var(--sand-bg);
+  line-height: 1.65;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header & Navigation */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(15, 44, 76, 0.96);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  border-bottom: 3px solid var(--plannen-main);
+  box-shadow: 0 2px 12px rgba(15, 44, 76, 0.18);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  padding: 2px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-size: 0.78rem;
+  color: #BAE6FD;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+}
+
+.nav-leren { border-bottom: 2px solid var(--leren-main); }
+.nav-plannen { border-bottom: 2px solid var(--plannen-main); }
+.nav-doen { border-bottom: 2px solid var(--doen-main); }
+.nav-cta {
+  background-color: var(--plannen-main);
+  color: var(--white);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 2.5rem 0 2rem;
+  background: radial-gradient(circle at 75% 45%, #FFFFFF 0%, #F1F5F9 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--plannen-dark);
+  background: var(--plannen-border);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.hero-copy h1 {
+  font-size: 2.35rem;
+  line-height: 1.18;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  font-weight: 900;
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--slate-text);
+  margin-bottom: 1.5rem;
+}
+
+.phase-Quicknav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.phase-chip {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--navy);
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.phase-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(15, 44, 76, 0.08);
+}
+
+.chip-points {
+  font-size: 0.75rem;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.phase-chip strong {
+  font-size: 1rem;
+  margin: 0.1rem 0;
+}
+
+.phase-chip span:last-child {
+  font-size: 0.8rem;
+  color: var(--slate-muted);
+}
+
+.chip-leren { background: var(--leren-bg); border-color: var(--leren-main); }
+.chip-plannen { background: var(--plannen-bg); border-color: var(--plannen-main); }
+.chip-doen { background: var(--doen-bg); border-color: var(--doen-main); }
+
+.wheel-hint {
+  font-size: 0.92rem;
+  background: #FFFFFF;
+  border-left: 4px solid var(--navy);
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.4rem;
+  color: var(--slate-muted);
+  margin: 0;
+}
+
+.hero-wheel-box {
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Punt 13 Philosophy Section */
+.philosophy-section {
+  padding: 2rem 0 1rem;
+  scroll-margin-top: 84px;
+}
+
+.philosophy-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--navy);
+  color: var(--white);
+  padding: 2rem 2.25rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 28px rgba(15, 44, 76, 0.16);
+}
+
+.philosophy-icon-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.philosophy-icon {
+  width: 128px;
+  height: 128px;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.philosophy-content-col h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.55rem;
+  color: #FEF08A;
+}
+
+.philosophy-highlight {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #E0F2FE;
+  margin: 0 0 0.75rem;
+}
+
+.philosophy-body p {
+  margin: 0 0 0.75rem;
+  color: #F1F5F9;
+}
+
+.philosophy-card .step-review-bar {
+  border-top-color: rgba(255, 255, 255, 0.18);
+  color: #CBD5E1;
+}
+
+.philosophy-card code {
+  background: rgba(255, 255, 255, 0.12);
+  color: #BAE6FD;
+}
+
+/* Wave Dividers */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.5rem 0;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 40px;
+  display: block;
+}
+
+/* Phase Sections */
+.phase-section {
+  padding: 2rem 0 2.5rem;
+  scroll-margin-top: 76px;
+}
+
+.phase-header {
+  margin-bottom: 1.75rem;
+}
+
+.phase-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.tag-leren { background: var(--leren-border); color: var(--leren-dark); }
+.tag-plannen { background: var(--plannen-border); color: var(--plannen-dark); }
+.tag-doen { background: var(--doen-border); color: var(--doen-dark); }
+
+.phase-header h2 {
+  font-size: 1.75rem;
+  color: var(--navy);
+  margin: 0 0 0.35rem;
+}
+
+.phase-header p {
+  margin: 0;
+  color: var(--slate-muted);
+  font-size: 1.05rem;
+}
+
+/* Step Cards */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1.65rem;
+  border: 2px solid var(--border-subtle);
+  box-shadow: 0 4px 14px rgba(15, 44, 76, 0.05);
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 90px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.step-card:target {
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.35), 0 10px 25px rgba(15, 44, 76, 0.14);
+}
+
+.phase-leren { border-top: 6px solid var(--leren-main); }
+.phase-plannen { border-top: 6px solid var(--plannen-main); }
+.phase-doen { border-top: 6px solid var(--doen-main); }
+
+.step-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin-bottom: 1.1rem;
+}
+
+.step-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-icon {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+
+.step-badge {
+  margin-top: -8px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 2px solid var(--white);
+}
+
+.step-badge-leren,
+.step-badge-leer,
+.phase-leren .step-badge {
+  background: var(--leren-main);
+  color: var(--white);
+}
+
+.step-badge-plannen,
+.step-badge-plan,
+.phase-plannen .step-badge {
+  background: var(--plannen-main);
+  color: var(--white);
+}
+
+.step-badge-doen,
+.step-badge-doe,
+.phase-doen .step-badge {
+  background: var(--doen-main);
+  color: var(--white);
+}
+
+.step-badge-kompas {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.step-phase-pill,
+.step-keyword-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.35rem;
+  background: #F1F5F9;
+  color: var(--slate-muted);
+}
+
+.phase-leren .step-phase-pill {
+  background: var(--leren-border);
+  color: var(--leren-dark);
+}
+
+.phase-plannen .step-phase-pill {
+  background: var(--plannen-border);
+  color: var(--plannen-dark);
+}
+
+.phase-doen .step-phase-pill {
+  background: var(--doen-border);
+  color: var(--doen-dark);
+}
+
+.step-title {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.28;
+  color: var(--navy);
+}
+
+/* Nautical Depth-Chart Vuistregel Box */
+.vuistregel-box {
+  background: #F8FAFC;
+  border: 1.5px dashed #94A3B8;
+  border-left: 5px solid var(--navy);
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.phase-leren .vuistregel-box { border-left-color: var(--leren-main); background: var(--leren-bg); }
+.phase-plannen .vuistregel-box { border-left-color: var(--plannen-main); background: var(--plannen-bg); }
+.phase-doen .vuistregel-box { border-left-color: var(--doen-main); background: var(--doen-bg); }
+
+.vuistregel-contour {
+  font-family: monospace, system-ui;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--slate-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.vuistregel-text {
+  margin: 0;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.98rem;
+}
+
+.step-body {
+  flex: 1;
+  font-size: 0.96rem;
+}
+
+.step-body p {
+  margin: 0 0 0.75rem;
+}
+
+.step-body ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.step-body li {
+  margin-bottom: 0.45rem;
+}
+
+/* Interactive Camion Widget (L4) */
+.camion-widget {
+  background: #F0F9FF;
+  border: 2px solid #BAE6FD;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.camion-header {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.camion-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.camion-controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  gap: 0.3rem;
+}
+
+.camion-track {
+  position: relative;
+  height: 54px;
+  background: linear-gradient(180deg, #FEF3C7 0%, #FEF3C7 34%, #38BDF8 35%, #0284C7 100%);
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--navy);
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+}
+
+.camion-landmark {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  transform: translateX(-50%);
+  background: #DC2626;
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.camion-landmark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  height: 38px;
+  border-left: 2px dashed rgba(15, 44, 76, 0.65);
+}
+
+.camion-swimmer {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  color: var(--navy);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 2px solid var(--navy);
+  white-space: nowrap;
+  transition: left 0.25s ease;
+}
+
+.camion-result {
+  margin: 0;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.4rem;
+}
+
+.result-danger { background: #FFE4E6; color: #9F1239; }
+.result-warn { background: #FEF3C7; color: #92400E; }
+.result-ok { background: #DCFCE7; color: #166534; }
+
+/* Review bar at bottom of each step card */
+.step-review-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.76rem;
+  color: var(--slate-muted);
+}
+
+.step-review-bar code {
+  font-size: 0.74rem;
+  background: #F1F5F9;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+}
+
+.back-to-wheel {
+  color: var(--plannen-dark);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-to-wheel:hover {
+  text-decoration: underline;
+}
+
+/* Strandposten Section */
+.strandposten-section {
+  padding: 1.5rem 0 3.5rem;
+}
+
+.strandposten-card {
+  background: linear-gradient(135deg, #0F2C4C 0%, #1E3A5F 100%);
+  color: var(--white);
+  padding: 2.25rem;
+  border-radius: 1.25rem;
+}
+
+.strandposten-card h2 {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--white);
+}
+
+.strandposten-card p {
+  color: #E2E8F0;
+  max-width: 780px;
+  margin-bottom: 1.5rem;
+}
+
+.strandpaal-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.strandpaal-badge {
+  background: #FEF3C7;
+  color: var(--navy);
+  border: 3px solid #D97706;
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.paal-name {
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.paal-status {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.status-calm { background: #DCFCE7; color: #166534; }
+.status-mod { background: #FEF08A; color: #854D0E; }
+.status-strong { background: #FFE4E6; color: #9F1239; }
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: #CBD5E1;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer a {
+  color: #38BDF8;
+  text-decoration: none;
+}
+
+.footer-note {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  color: #94A3B8;
+}
+
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .philosophy-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .camion-controls {
+    grid-template-columns: 1fr;
+  }
+}
+

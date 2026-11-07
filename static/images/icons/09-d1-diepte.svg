@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="47" fill="#FFF1F2" stroke="#E11D48" stroke-width="3.5"/>
+  <!-- Standing Figure -->
+    <g stroke="#0F2C4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Head -->
+      <ellipse cx="48" cy="24" rx="5.5" ry="7" fill="#FFFFFF"/>
+      <!-- Shoulders, torso & arms hanging down -->
+      <path d="M 38 33 L 58 33 L 56 54 L 40 54 Z" fill="#FFFFFF"/>
+      <path d="M 38 33 L 33 52 M 58 33 L 63 52" fill="none"/>
+      <!-- Swim trunks at hip level -->
+      <path d="M 40 54 L 56 54 L 57 65 L 49 63 L 48 63 L 39 65 Z" fill="#1E293B"/>
+      <!-- Legs standing on sandy bottom -->
+      <path d="M 42 65 L 40 82 L 36 83 M 54 65 L 55 82 L 60 83" fill="none" stroke-width="3.5"/>
+    </g>
+    <!-- Waist-high blue sea waves cutting across hips (y ~ 55) -->
+    <path d="M 8 55 Q 20 50, 32 55 T 56 55 T 80 54 T 94 56" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 12 60 Q 28 56, 44 60 T 76 59 T 92 61" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 20 70 Q 32 68, 42 71 M 60 69 Q 72 68, 82 72" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

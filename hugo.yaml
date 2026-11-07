@@ -1,0 +1,18 @@
+baseURL: "https://cscm.portier.info/"
+languageCode: "nl-be"
+title: "Veilig Zwemmen in Zee — Het 12-Stappen-Kompas | CSCM"
+theme: []
+disableKinds:
+  - taxonomy
+  - term
+
+params:
+  subtitle: "Klaar voor de Noordzee? Zwem slim, vrij en veilig."
+  description: "Een positief, kennisgedreven en factueel 12-stappenkompas om iedereen (12+) in staat te stellen verantwoord in de Noordzee te zwemmen."
+  repoURL: "https://github.com/marc-portier/cscm.portier.info"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+

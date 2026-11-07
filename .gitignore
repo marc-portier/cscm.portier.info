@@ -1,0 +1,13 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# Local experimenting & scratch materials
+experimenting/
+
+# Python / OS artifacts
+__pycache__/
+*.pyc
+.DS_Store
+

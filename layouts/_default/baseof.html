@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="stylesheet" href="/css/style.css?v={{ now.Unix }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <img src="/images/icons/13-kompas-verantwoordelijkheid.svg" alt="Kompas Vuurtoren" class="brand-icon">
+        <div class="brand-text">
+          <span class="brand-title">Veilig Zwemmen in Zee</span>
+          <span class="brand-sub">cscm.portier.info · Het 12-Stappen-Kompas</span>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Hoofdnavigatie">
+        <a href="#kompas-wiel" class="nav-link">Het Kompas</a>
+        <a href="#fase-leren" class="nav-link nav-leren">Ⅰ · Leren</a>
+        <a href="#fase-plannen" class="nav-link nav-plannen">Ⅱ · Plannen</a>
+        <a href="#fase-doen" class="nav-link nav-doen">Ⅲ · Doen</a>
+        <a href="#filosofie" class="nav-link">💡 · Filosofie</a>
+        <a href="#strandposten" class="nav-link nav-cta">Strandposten</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>CSCM — Coastal Swim Current Model</strong> · <a href="https://cscm.portier.info">cscm.portier.info</a>
+        <p class="footer-note">Positief gidsend, kennisgedreven en factueel — voor veilig en verantwoord
+          openwaterzwemmen in de Noordzee.</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ .Site.Params.repoURL }}" target="_blank" rel="noopener">GitHub Broncode &amp; Feedback</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="47" fill="#F0F9FF" stroke="#0284C7" stroke-width="3.5"/>
+  <!-- Horizontal water & shadow bands -->
+    <rect x="8" y="57" width="84" height="6" rx="2" fill="#BAE6FD"/>
+    <rect x="10" y="63" width="80" height="5" rx="2" fill="#CBD5E1"/>
+    <!-- Tether cord connecting buoy to swimmer -->
+    <path d="M 37 54 L 46 57" stroke="#0F2C4C" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Bright Fluo Pink Tow-Float (Zwemboei) on the left -->
+    <path d="M 14 53 C 19 45, 33 45, 38 53 C 33 58, 19 58, 14 53 Z" fill="#EC4899" stroke="#0F2C4C" stroke-width="2.8" stroke-linejoin="round"/>
+    <path d="M 19 50 Q 26 47, 32 50" fill="none" stroke="#FBCFE8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Crawl swimmer on the right with matching Fluo Pink Swim Cap -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Recovery arm triangle -->
+      <path d="M 53 56 L 71 43 L 86 56 L 88 60" fill="#FFFFFF"/>
+      <path d="M 59 55 L 71 46 L 82 55" fill="none"/>
+      <!-- Bright fluo pink swim cap head -->
+      <circle cx="67" cy="54" r="5" fill="#EC4899"/>
+    </g>
+</svg>

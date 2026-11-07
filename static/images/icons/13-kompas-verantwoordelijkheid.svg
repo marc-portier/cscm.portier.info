@@ -1,0 +1,28 @@
+<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="47" fill="#F8FAFC" stroke="#0F2C4C" stroke-width="3.5"/>
+  <!-- Yellow Light Beams radiating left and right -->
+    <g stroke="#FACC15" stroke-width="3" stroke-linecap="round">
+      <line x1="14" y1="22" x2="36" y2="28"/>
+      <line x1="12" y1="30" x2="34" y2="31"/>
+      <line x1="14" y1="38" x2="36" y2="34"/>
+      <line x1="86" y1="22" x2="64" y2="28"/>
+      <line x1="88" y1="30" x2="66" y2="31"/>
+      <line x1="86" y1="38" x2="64" y2="34"/>
+    </g>
+    <!-- Lighthouse Base -->
+    <rect x="26" y="78" width="48" height="7" rx="2" fill="#F8FAFC" stroke="#0F2C4C" stroke-width="2.8"/>
+    <!-- Lighthouse Tower Body (White & Blue stripes) -->
+    <polygon points="36,78 41,38 59,38 64,78" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.8" stroke-linejoin="round"/>
+    <!-- Top Blue Stripe -->
+    <polygon points="40.2,44 59.8,44 61.1,54 38.9,54" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Bottom Blue Stripe -->
+    <polygon points="37.9,62 62.1,62 63.4,72 36.6,72" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Gallery deck -->
+    <line x1="38" y1="38" x2="62" y2="38" stroke="#0F2C4C" stroke-width="3" stroke-linecap="round"/>
+    <!-- Lantern room with yellow glow -->
+    <rect x="43" y="25" width="14" height="13" fill="#FEF08A" stroke="#0F2C4C" stroke-width="2.5"/>
+    <line x1="47" y1="25" x2="47" y2="38" stroke="#0F2C4C" stroke-width="2"/>
+    <line x1="53" y1="25" x2="53" y2="38" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Blue Pitched Roof -->
+    <polygon points="39,25 50,16 61,25" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2.6" stroke-linejoin="round"/>
+</svg>

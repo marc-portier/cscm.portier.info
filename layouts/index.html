@@ -1,0 +1,221 @@
+{{ define "main" }}
+{{ $stappen := where .Site.RegularPages "Section" "stappen" }}
+{{ $leren := where $stappen "Params.phase_slug" "leren" }}
+{{ $plannen := where $stappen "Params.phase_slug" "plannen" }}
+{{ $doen := where $stappen "Params.phase_slug" "doen" }}
+{{ $kompas := where $stappen "Params.step_id" "filosofie" }}
+
+<!-- HERO & INTERACTIEF 12-PUNTEN KOMPAS -->
+<section id="kompas-wiel" class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Onderdeel 1 · Gidsend 12-Stappen-Kompas (12+)</span>
+      <h1>{{ .Title }}</h1>
+      <div class="hero-lead">
+        {{ .Content }}
+      </div>
+
+      <div class="phase-Quicknav">
+        <a href="#fase-leren" class="phase-chip chip-leren">
+          <span class="chip-points">Punt 1 – 4</span>
+          <strong>Ⅰ · LEREN</strong>
+          <span>In het zwembad</span>
+        </a>
+        <a href="#fase-plannen" class="phase-chip chip-plannen">
+          <span class="chip-points">Punt 5 – 8</span>
+          <strong>Ⅱ · PLANNEN</strong>
+          <span>Thuis &amp; op het strand</span>
+        </a>
+        <a href="#fase-doen" class="phase-chip chip-doen">
+          <span class="chip-points">Punt 9 – 12</span>
+          <strong>Ⅲ · DOEN</strong>
+          <span>Aan en in het water</span>
+        </a>
+      </div>
+
+      <p class="wheel-hint">
+        💡 <strong>Klik op een van de 12 iconen, kompaspunten of de centrale vuurtoren</strong> in het kompas om rechtstreeks naar dat punt te springen.
+      </p>
+    </div>
+
+    <div class="hero-wheel-box">
+      {{ readFile "static/images/central-overview.svg" | safeHTML }}
+    </div>
+  </div>
+</section>
+
+<!-- CENTRAAL ELEMENT (FILOSOFIE): KENNIS & EIGEN VERANTWOORDELIJKHEID -->
+{{ range $kompas }}
+<section id="filosofie" class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-card">
+      <div class="philosophy-icon-col">
+        <img src="{{ .Params.icon }}" alt="Vuurtoren - Onze Filosofie" class="philosophy-icon">
+        <span class="step-badge step-badge-kompas">💡 · Filosofie</span>
+      </div>
+      <div class="philosophy-content-col">
+        <h2>{{ .Title }}</h2>
+        <p class="philosophy-highlight">{{ .Params.vuistregel }}</p>
+        <div class="philosophy-body">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- GOLF DIVIDER -->
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+    <path d="M0,24 C200,4 400,44 600,24 C800,4 1000,44 1200,24" fill="none" stroke="#F59E0B" stroke-width="3" stroke-opacity="0.45"/>
+    <path d="M0,32 C200,12 400,52 600,32 C800,12 1000,52 1200,32" fill="none" stroke="#0F2C4C" stroke-width="1.5" stroke-opacity="0.2"/>
+  </svg>
+</div>
+
+<!-- FASE 1: LEREN (Punt 1 - 4) -->
+<section id="fase-leren" class="phase-section section-leren">
+  <div class="container">
+    <div class="phase-header">
+      <span class="phase-tag tag-leren">FASE Ⅰ · LEREN (Punt 1 – 4)</span>
+      <h2>Wat je beheerst en begrijpt vóór je de zee in stapt</h2>
+      <p>Wat je in de veilige omgeving van het zwembad al onder de knie krijgt en welk fysisch inzicht onmisbaar is.</p>
+    </div>
+    <div class="steps-grid">
+      {{ range $leren.ByWeight }}
+        {{ partial "step-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- GOLF DIVIDER -->
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+    <path d="M0,24 C200,44 400,4 600,24 C800,44 1000,4 1200,24" fill="none" stroke="#0284C7" stroke-width="3" stroke-opacity="0.45"/>
+    <path d="M0,32 C200,52 400,12 600,32 C800,52 1000,12 1200,32" fill="none" stroke="#0F2C4C" stroke-width="1.5" stroke-opacity="0.2"/>
+  </svg>
+</div>
+
+<!-- FASE 2: PLANNEN (Punt 5 - 8) -->
+<section id="fase-plannen" class="phase-section section-plannen">
+  <div class="container">
+    <div class="phase-header">
+      <span class="phase-tag tag-plannen">FASE Ⅱ · PLANNEN (Punt 5 – 8)</span>
+      <h2>Hoe je thuis en op het strand voorbereidt</h2>
+      <p>De juiste keuzes maken over tijdstip, gezelschap, zichtbare uitrusting en een veilige instapplek.</p>
+    </div>
+    <div class="steps-grid">
+      {{ range $plannen.ByWeight }}
+        {{ partial "step-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- GOLF DIVIDER -->
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+    <path d="M0,24 C200,4 400,44 600,24 C800,4 1000,44 1200,24" fill="none" stroke="#E11D48" stroke-width="3" stroke-opacity="0.45"/>
+    <path d="M0,32 C200,12 400,52 600,32 C800,12 1000,52 1200,32" fill="none" stroke="#0F2C4C" stroke-width="1.5" stroke-opacity="0.2"/>
+  </svg>
+</div>
+
+<!-- FASE 3: DOEN (Punt 9 - 12) -->
+<section id="fase-doen" class="phase-section section-doen">
+  <div class="container">
+    <div class="phase-header">
+      <span class="phase-tag tag-doen">FASE Ⅲ · DOEN (Punt 9 – 12)</span>
+      <h2>Slim handelen aan de waterlijn en in het water</h2>
+      <p>Concrete vuistregels op het moment zelf: veilige diepte, nuchterheid, de 2-minuten stromingscheck en tijdig bijsturen.</p>
+    </div>
+    <div class="steps-grid">
+      {{ range $doen.ByWeight }}
+        {{ partial "step-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ONDERDEEL 2 TEASER: STRANDPOST STROOMPROFIELEN UIT CSCM -->
+<section id="strandposten" class="strandposten-section">
+  <div class="container">
+    <div class="strandposten-card">
+      <div>
+        <span class="eyebrow">Onderdeel 2 · Koppeling met CSCM Hydrodynamische Modellen</span>
+        <h2>Dagelijkse Strandpost-Stroomprofielen (Vandaag t/m +7 dagen)</h2>
+        <p>
+          Vanuit het <strong>CSCM</strong> (<em>Coastal Swim Current Model</em>) genereren we voor de Belgische kustposten dagelijkse getijden- en stromingsprofielen op basis van HIC/MDK-waterstanden en CMEMS-zeestroomvoorspellingen.
+        </p>
+        <div class="strandpaal-badges">
+          <div class="strandpaal-badge">
+            <span class="paal-name">NIEUWPOORT · POST 1</span>
+            <span class="paal-status status-calm">⇄ Kentering · 0,2 m/s</span>
+          </div>
+          <div class="strandpaal-badge">
+            <span class="paal-name">OOSTENDE · POST 2</span>
+            <span class="paal-status status-mod">→ Vloed (Oost) · 0,6 m/s</span>
+          </div>
+          <div class="strandpaal-badge">
+            <span class="paal-name">BREDENE · POST 4</span>
+            <span class="paal-status status-strong">⇉ Piekvloed · 1,1 m/s</span>
+          </div>
+          <div class="strandpaal-badge">
+            <span class="paal-name">DE HAAN · POST 3</span>
+            <span class="paal-status status-mod">→ Vloed (Oost) · 0,7 m/s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const swimInput = document.getElementById('swim-speed');
+  const currInput = document.getElementById('current-speed');
+  const swimLabel = document.getElementById('swim-pace-label');
+  const currLabel = document.getElementById('current-speed-label');
+  const swimmerEl = document.getElementById('camion-swimmer');
+  const resultEl = document.getElementById('camion-result');
+
+  if (!swimInput || !currInput) return;
+
+  function formatPace(mps) {
+    const secPer100 = Math.round(100 / mps);
+    const m = Math.floor(secPer100 / 60);
+    const s = secPer100 % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s + ' /100m (' + mps.toFixed(2).replace('.', ',') + ' m/s)';
+  }
+
+  function updateCamion() {
+    const vSwim = parseFloat(swimInput.value);
+    const vCurr = parseFloat(currInput.value);
+    const vNet = vSwim - vCurr;
+    swimLabel.textContent = formatPace(vSwim);
+    currLabel.textContent = vCurr.toFixed(2).replace('.', ',') + ' m/s (' + (vCurr * 3.6).toFixed(1).replace('.', ',') + ' km/u)';
+
+    // Position swimmer along track (50% = stationary at strandpost)
+    const pct = Math.max(8, Math.min(88, 50 + vNet * 35));
+    swimmerEl.style.left = pct + '%';
+
+    const drift10Min = Math.round(vNet * 600);
+    if (vNet < -0.03) {
+      resultEl.innerHTML = '⚠️ <strong>De Camion wint:</strong> Hoewel je voluit naar rechts zwemt, schuif je met <strong>' + Math.abs(vNet).toFixed(2).replace('.', ',') + ' m/s achteruit</strong> t.o.v. de strandpost (' + Math.abs(drift10Min) + ' meter achteruit na 10 min!).';
+      resultEl.className = 'camion-result result-danger';
+    } else if (Math.abs(vNet) <= 0.03) {
+      resultEl.innerHTML = '⚖️ <strong>Stilstand t.o.v. het strand:</strong> Je zwemt op volle kracht, maar blijft exact op dezelfde plek voor de strandpost hangen (0 m vooruitgang).';
+      resultEl.className = 'camion-result result-warn';
+    } else {
+      resultEl.innerHTML = '✅ <strong>Vooruitgang over de grond:</strong> Je wint netto <strong>+' + vNet.toFixed(2).replace('.', ',') + ' m/s</strong> t.o.v. de strandpost (+' + drift10Min + ' meter na 10 min).';
+      resultEl.className = 'camion-result result-ok';
+    }
+  }
+
+  swimInput.addEventListener('input', updateCamion);
+  currInput.addEventListener('input', updateCamion);
+  updateCamion();
+})();
+</script>
+{{ end }}
+

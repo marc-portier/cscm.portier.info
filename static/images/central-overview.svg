@@ -1,0 +1,570 @@
+<svg viewBox="0 0 880 880" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <style>
+    .wheel-node { cursor: pointer; transition: transform 0.2s ease, filter 0.2s ease; transform-box: fill-box; transform-origin: center; }
+    .wheel-node:hover { transform: scale(1.07); }
+    .wheel-wedge { cursor: pointer; }
+    .wheel-wedge:hover path { fill-opacity: 0.22; }
+    .wheel-wedge:hover text { text-decoration: underline; }
+  </style>
+  <defs>
+    <filter id="node-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F2C4C" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="grad-leer" cx="50%" cy="50%" r="50%">
+      <stop offset="25%" stop-color="#FEF3C7" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.88"/>
+    </radialGradient>
+    <radialGradient id="grad-plan" cx="50%" cy="50%" r="50%">
+      <stop offset="25%" stop-color="#E0F2FE" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#BAE6FD" stop-opacity="0.88"/>
+    </radialGradient>
+    <radialGradient id="grad-doe" cx="50%" cy="50%" r="50%">
+      <stop offset="25%" stop-color="#FFE4E6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FECDD3" stop-opacity="0.88"/>
+    </radialGradient>
+
+    <symbol id="icon-01-l1-afstand" viewBox="0 0 100 100">
+
+    <!-- Water wave ribbon behind infinity loop -->
+    <path d="M 6 54 C 22 40, 38 68, 50 54 C 62 40, 78 68, 94 54" fill="none" stroke="#BAE6FD" stroke-width="8" stroke-linecap="round"/>
+    <!-- Infinity loop (∞) -->
+    <path d="M 50 52 C 38 34, 14 34, 14 52 C 14 70, 38 70, 50 52 C 62 34, 86 34, 86 52 C 86 70, 62 70, 50 52 Z"
+          fill="none" stroke="#F59E0B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Streamlined front-crawl swimmer gliding horizontally across the middle -->
+    <g fill="none" stroke="#0F2C4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Extended front arm & torso & legs -->
+      <path d="M 16 51 L 46 50 C 56 48, 66 48, 76 50 L 90 52"/>
+      <!-- Lower body / kick -->
+      <path d="M 16 51 L 14 57 M 22 55 L 44 54"/>
+      <!-- Recovery arm arched over water -->
+      <path d="M 58 49 C 65 37, 74 37, 84 48 L 87 53"/>
+      <!-- Head with swim cap -->
+      <ellipse cx="72" cy="46" rx="5.5" ry="4" fill="#F59E0B" stroke="#0F2C4C" stroke-width="2.5"/>
+    </g>
+    <!-- +800m and +15' badges -->
+    <text x="50" y="22" font-family="system-ui, sans-serif" font-size="13.5" font-weight="800" fill="#0F2C4C" text-anchor="middle">+800m</text>
+    <text x="50" y="88" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#B45309" text-anchor="middle">+15'</text>
+    
+    </symbol>
+    <symbol id="icon-02-l2-tijd-en-zicht" viewBox="0 0 100 100">
+
+    <!-- Subtle water line below -->
+    <path d="M 10 82 Q 30 76, 50 82 T 90 82" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <!-- Goggle strap stubs & nose bridge -->
+    <path d="M 4 52 L 11 52 M 89 52 L 96 52" stroke="#0F2C4C" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 45 50 Q 50 45, 55 50" fill="none" stroke="#0F2C4C" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Left Goggle Lens (Eye) -->
+    <ellipse cx="27.5" cy="52" rx="18" ry="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="5"/>
+    <ellipse cx="27.5" cy="52" rx="18" ry="14" fill="none" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Eye inside left lens -->
+    <path d="M 15 52 Q 27.5 41, 40 52 Q 27.5 63, 15 52 Z" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="28" cy="52" r="5" fill="#0F2C4C"/>
+    <circle cx="29.5" cy="50.5" r="1.6" fill="#FFFFFF"/>
+    <!-- Stopwatch buttons on top of right lens -->
+    <g stroke="#0F2C4C" stroke-width="2.5" stroke-linecap="round">
+      <line x1="63" y1="32" x2="60" y2="25"/>
+      <line x1="56" y1="27" x2="64" y2="23"/>
+      <line x1="79" y1="32" x2="82" y2="25"/>
+      <line x1="78" y1="23" x2="86" y2="27"/>
+    </g>
+    <!-- Right Goggle Lens (Chrono Stopwatch) -->
+    <circle cx="71" cy="52" r="19" fill="#FFFFFF" stroke="#0284C7" stroke-width="5"/>
+    <circle cx="71" cy="52" r="19" fill="none" stroke="#0F2C4C" stroke-width="2"/>
+    <text x="71" y="42" font-family="system-ui, sans-serif" font-size="6.5" font-weight="800" fill="#64748B" text-anchor="middle">MIN</text>
+    <text x="71" y="56" font-family="monospace, system-ui" font-size="11" font-weight="900" fill="#0F2C4C" text-anchor="middle">01:23</text>
+    <path d="M 63 63 L 65 61 M 67 64 L 69 61 M 71 64 L 73 61 M 75 64 L 77 61" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="icon-03-l3-kalmte" viewBox="0 0 100 100">
+
+    <!-- Calm breathing arcs above head -->
+    <path d="M 28 34 Q 33 28, 38 34" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 25 27 Q 33 19, 41 27" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 22 20 Q 33 10, 44 20" fill="none" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round"/>
+    <!-- Swimmer floating calmly on back along the surface -->
+    <!-- Head & face looking up -->
+    <path d="M 18 56 C 18 47, 29 46, 31 53 L 33 50 L 35 54" fill="#FEF3C7" stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Swim cap on back of head -->
+    <path d="M 18 56 C 18 48, 26 47, 29 51" fill="#F59E0B" stroke="#0F2C4C" stroke-width="2.5"/>
+    <!-- Floating chest, torso, hips and toes at water level -->
+    <path d="M 34 55 C 42 49, 53 49, 60 55 C 68 56, 77 56, 84 55 L 87 48 L 89 56"
+          fill="#0F2C4C" fill-opacity="0.15" stroke="#0F2C4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Relaxed arm resting along side -->
+    <path d="M 41 53 Q 50 58, 59 55" fill="none" stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round"/>
+    <!-- Gentle horizontal sea surface lines -->
+    <path d="M 6 58 Q 22 54, 38 58 T 70 58 T 95 57" fill="none" stroke="#0284C7" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M 14 66 Q 35 63, 55 66 T 88 65" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="icon-04-l4-camion" viewBox="0 0 100 100">
+
+    <!-- Open water tank with sloshing blue waves -->
+    <path d="M 38 35 Q 48 29, 58 34 T 78 33 T 90 35 L 90 58 L 38 58 Z" fill="#BAE6FD"/>
+    <path d="M 38 35 Q 48 29, 58 34 T 78 33 T 90 35" fill="none" stroke="#0284C7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 41 43 Q 52 39, 63 43 T 87 42" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 42 50 Q 56 47, 70 50 T 86 49" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Truck Cab (left-facing) -->
+    <!-- Green engine hood & lower cab -->
+    <path d="M 12 45 L 22 44 L 36 44 L 36 58 L 12 58 Z" fill="#86EFAC" stroke="#0F2C4C" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Yellow radiator grille -->
+    <rect x="10" y="46" width="4" height="11" rx="1" fill="#FACC15" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Red cab roof & window frame -->
+    <path d="M 20 44 L 22 31 L 36 30 L 36 44 Z" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M 19 32 L 36 29 L 36 33 L 20 34 Z" fill="#DC2626" stroke="#0F2C4C" stroke-width="2"/>
+    <line x1="27" y1="33" x2="27" y2="44" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Red chassis & water tank frame -->
+    <path d="M 37 26 L 37 60 L 91 60 L 91 26" fill="none" stroke="#B91C1C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="38" y1="34" x2="90" y2="34" stroke="#B91C1C" stroke-width="2.5"/>
+    <rect x="36" y="57" width="57" height="4.5" rx="1.5" fill="#DC2626" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- 3 Wheels (1 front, 2 rear tandem) -->
+    <g fill="#1E293B" stroke="#0F2C4C" stroke-width="2.5">
+      <circle cx="24" cy="64" r="8.5"/>
+      <circle cx="62" cy="64" r="8.5"/>
+      <circle cx="79" cy="64" r="8.5"/>
+    </g>
+    <g fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2">
+      <circle cx="24" cy="64" r="3.5"/>
+      <circle cx="62" cy="64" r="3.5"/>
+      <circle cx="79" cy="64" r="3.5"/>
+    </g>
+    <!-- Strong tidal motion arrow underneath -->
+    <path d="M 86 82 L 16 82 M 26 76 L 15 82 L 26 88" fill="none" stroke="#0284C7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    </symbol>
+    <symbol id="icon-05-p1-timing" viewBox="0 0 100 100">
+
+    <!-- Sun & Cloud (top left) -->
+    <circle cx="33" cy="34" r="8" fill="#FACC15" stroke="#EAB308" stroke-width="2"/>
+    <path d="M 33 22 L 33 19 M 42 25 L 44 23 M 44 34 L 47 34 M 41 42 L 43 44" stroke="#EAB308" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 14 44 C 10 44, 9 37, 14 35 C 14 29, 22 28, 25 32 C 29 30, 34 34, 33 39 C 36 40, 35 45, 31 45 Z"
+          fill="#E2E8F0" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Vertical Mast -->
+    <line x1="48" y1="16" x2="48" y2="88" stroke="#0F2C4C" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="48" cy="16" r="2.5" fill="#0F2C4C"/>
+    <!-- Striped Windsock flying right -->
+    <path d="M 48 20 L 53 19 M 48 34 L 53 33" stroke="#0F2C4C" stroke-width="2"/>
+    <path d="M 53 18 L 82 22 L 89 30 L 85 37 L 78 33 L 53 33 Z" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.3" stroke-linejoin="round"/>
+    <!-- Red stripes on windsock -->
+    <path d="M 59 19 L 66 20 L 65 33 L 58 33 Z" fill="#DC2626"/>
+    <path d="M 73 21 L 80 22 L 77 33 L 71 33 Z" fill="#DC2626"/>
+    <ellipse cx="53" cy="25.5" rx="2.5" ry="7.5" fill="#E2E8F0" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Crescent Moon (middle right) -->
+    <path d="M 68 42 A 8 8 0 1 0 74 55 A 6.5 6.5 0 1 1 68 42 Z" fill="#FEF08A" stroke="#0F2C4C" stroke-width="2.2" stroke-linejoin="round"/>
+    <!-- Sinusoidal Tide Graph across bottom -->
+    <path d="M 12 76 C 20 58, 28 52, 35 52 C 44 52, 50 76, 62 76 C 74 76, 80 54, 86 54 C 90 54, 92 58, 94 62"
+          fill="none" stroke="#0284C7" stroke-width="5" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="icon-06-p2-samen" viewBox="0 0 100 100">
+
+    <!-- Water surface waves -->
+    <path d="M 6 60 Q 28 56, 50 60 T 94 58" fill="none" stroke="#0284C7" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M 12 68 Q 36 65, 58 68 T 88 67" fill="none" stroke="#BAE6FD" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Swimmer 1 (Front/Left) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 10 58 L 27 45 L 40 57 L 42 61" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 15 57 L 27 47 L 37 56" fill="none"/>
+      <circle cx="24" cy="54" r="4.5" fill="#F59E0B"/>
+    </g>
+    <!-- Swimmer 2 (Middle) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 35 57 L 52 44 L 65 56 L 67 60" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 40 56 L 52 46 L 62 55" fill="none"/>
+      <circle cx="49" cy="53" r="4.5" fill="#0284C7"/>
+    </g>
+    <!-- Swimmer 3 (Rear/Right) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 59 57 L 76 44 L 89 56 L 91 60" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 64 56 L 76 46 L 86 55" fill="none"/>
+      <circle cx="73" cy="53" r="4.5" fill="#EC4899"/>
+    </g>
+    
+    </symbol>
+    <symbol id="icon-07-p3-materiaal" viewBox="0 0 100 100">
+
+    <!-- Horizontal water & shadow bands -->
+    <rect x="8" y="57" width="84" height="6" rx="2" fill="#BAE6FD"/>
+    <rect x="10" y="63" width="80" height="5" rx="2" fill="#CBD5E1"/>
+    <!-- Tether cord connecting buoy to swimmer -->
+    <path d="M 37 54 L 46 57" stroke="#0F2C4C" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Bright Fluo Pink Tow-Float (Zwemboei) on the left -->
+    <path d="M 14 53 C 19 45, 33 45, 38 53 C 33 58, 19 58, 14 53 Z" fill="#EC4899" stroke="#0F2C4C" stroke-width="2.8" stroke-linejoin="round"/>
+    <path d="M 19 50 Q 26 47, 32 50" fill="none" stroke="#FBCFE8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Crawl swimmer on the right with matching Fluo Pink Swim Cap -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Recovery arm triangle -->
+      <path d="M 53 56 L 71 43 L 86 56 L 88 60" fill="#FFFFFF"/>
+      <path d="M 59 55 L 71 46 L 82 55" fill="none"/>
+      <!-- Bright fluo pink swim cap head -->
+      <circle cx="67" cy="54" r="5" fill="#EC4899"/>
+    </g>
+    
+    </symbol>
+    <symbol id="icon-08-p4-plek" viewBox="0 0 100 100">
+
+    <!-- Map Location Pin Silhouette -->
+    <path d="M 50 92 C 42 77, 20 55, 20 37 A 30 30 0 1 1 80 37 C 80 55, 58 77, 50 92 Z"
+          fill="#94A3B8" stroke="#0F2C4C" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Inner White Circle -->
+    <circle cx="50" cy="37" r="21" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.2"/>
+    <!-- Belgian Lifeguard Mirador / High Chair inside pin -->
+    <g stroke="#0F2C4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- High chair backrest / seat -->
+      <path d="M 43 22 L 57 22 L 55 29 L 45 29 Z" fill="#F8FAFC"/>
+      <line x1="47" y1="22" x2="47" y2="29"/>
+      <line x1="50" y1="22" x2="50" y2="29"/>
+      <line x1="53" y1="22" x2="53" y2="29"/>
+      <!-- Side armrests / horns -->
+      <path d="M 38 27 L 62 27 M 38 27 L 40 25 M 62 27 L 60 25" fill="none"/>
+      <!-- Slatted platform -->
+      <path d="M 41 32 L 59 32 L 62 38 L 38 38 Z" fill="#FEF3C7"/>
+      <line x1="45" y1="32" x2="43" y2="38"/>
+      <line x1="50" y1="32" x2="50" y2="38"/>
+      <line x1="55" y1="32" x2="57" y2="38"/>
+      <!-- Support legs & crossbars -->
+      <line x1="43" y1="38" x2="39" y2="52"/>
+      <line x1="57" y1="38" x2="60" y2="52"/>
+      <line x1="54" y1="38" x2="54" y2="50"/>
+      <line x1="41" y1="45" x2="58" y2="45"/>
+      <!-- Lifebuoy (Reddingsboei) mounted on left leg -->
+      <circle cx="42" cy="44" r="5.5" fill="#F97316" stroke="#0F2C4C" stroke-width="1.8"/>
+      <circle cx="42" cy="44" r="2.2" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="1.5"/>
+    </g>
+    
+    </symbol>
+    <symbol id="icon-09-d1-diepte" viewBox="0 0 100 100">
+
+    <!-- Standing Figure -->
+    <g stroke="#0F2C4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Head -->
+      <ellipse cx="48" cy="24" rx="5.5" ry="7" fill="#FFFFFF"/>
+      <!-- Shoulders, torso & arms hanging down -->
+      <path d="M 38 33 L 58 33 L 56 54 L 40 54 Z" fill="#FFFFFF"/>
+      <path d="M 38 33 L 33 52 M 58 33 L 63 52" fill="none"/>
+      <!-- Swim trunks at hip level -->
+      <path d="M 40 54 L 56 54 L 57 65 L 49 63 L 48 63 L 39 65 Z" fill="#1E293B"/>
+      <!-- Legs standing on sandy bottom -->
+      <path d="M 42 65 L 40 82 L 36 83 M 54 65 L 55 82 L 60 83" fill="none" stroke-width="3.5"/>
+    </g>
+    <!-- Waist-high blue sea waves cutting across hips (y ~ 55) -->
+    <path d="M 8 55 Q 20 50, 32 55 T 56 55 T 80 54 T 94 56" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 12 60 Q 28 56, 44 60 T 76 59 T 92 61" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 20 70 Q 32 68, 42 71 M 60 69 Q 72 68, 82 72" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="icon-10-d2-alcohol" viewBox="0 0 100 100">
+
+    <!-- Beverage Glass in center -->
+    <g stroke="#0F2C4C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 39 32 L 61 32 L 58 69 L 42 69 Z" fill="#F8FAFC"/>
+      <ellipse cx="50" cy="32" rx="11" ry="2.8" fill="#FFFFFF"/>
+      <!-- Liquid & glass ridges -->
+      <path d="M 40 42 Q 50 44, 60 42" fill="none" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="45" y1="54" x2="45" y2="68" stroke-width="1.8"/>
+      <line x1="50" y1="52" x2="50" y2="68" stroke-width="1.8"/>
+      <line x1="55" y1="54" x2="55" y2="68" stroke-width="1.8"/>
+    </g>
+    <!-- Bold Red Prohibition Sign (Circle + Slash) -->
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#E11D48" stroke-width="10"/>
+    <circle cx="50" cy="50" r="39" fill="none" stroke="#0F2C4C" stroke-width="1.8"/>
+    <circle cx="50" cy="50" r="29" fill="none" stroke="#0F2C4C" stroke-width="1.8"/>
+    <line x1="27" y1="73" x2="73" y2="27" stroke="#E11D48" stroke-width="10" stroke-linecap="butt"/>
+    <line x1="23.5" y1="69.5" x2="69.5" y2="23.5" stroke="#0F2C4C" stroke-width="1.8"/>
+    <line x1="30.5" y1="76.5" x2="76.5" y2="30.5" stroke="#0F2C4C" stroke-width="1.8"/>
+    
+    </symbol>
+    <symbol id="icon-11-d3-check" viewBox="0 0 100 100">
+
+    <!-- Anchor line pulled taut at an angle by the current -->
+    <path d="M 34 53 L 43 90" fill="none" stroke="#0F2C4C" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="34" cy="53" r="2.8" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Big Yellow Marker Buoy floating on surface -->
+    <ellipse cx="32" cy="34" rx="11" ry="14" fill="#FACC15" stroke="#0F2C4C" stroke-width="2.6"/>
+    <ellipse cx="29" cy="31" rx="4" ry="6" fill="#FEF08A" opacity="0.7"/>
+    <line x1="33" y1="48" x2="34" y2="51" stroke="#0F2C4C" stroke-width="2.5"/>
+    <!-- Swimmer floating in water holding line / testing drift -->
+    <g stroke="#0F2C4C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Head with goggles -->
+      <circle cx="52" cy="43" r="5.5" fill="#FFFFFF"/>
+      <path d="M 47 41 Q 52 39, 57 42" fill="none" stroke-width="2.5"/>
+      <!-- Floating body stretched to the right with current -->
+      <ellipse cx="66" cy="50" rx="12" ry="4.5" fill="#E2E8F0"/>
+      <!-- Arm reaching out -->
+      <path d="M 56 46 L 76 42" fill="none"/>
+      <circle cx="77" cy="42" r="1.8" fill="#FFFFFF"/>
+    </g>
+    <!-- Water surface waves -->
+    <path d="M 10 50 Q 30 46, 50 50 T 92 49" fill="none" stroke="#0284C7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 12 56 Q 35 52, 58 56 T 90 55" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="icon-12-d4-afbreken" viewBox="0 0 100 100">
+
+    <!-- Sea surf lines on the upper-left & diagonal shoreline -->
+    <path d="M 14 78 C 24 66, 30 62, 38 56 C 44 50, 48 44, 58 38" fill="none" stroke="#0284C7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 22 84 C 32 72, 40 68, 46 60 C 52 52, 56 48, 64 43" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <g stroke="#60A5FA" stroke-width="2" stroke-linecap="round">
+      <line x1="28" y1="36" x2="54" y2="36"/>
+      <line x1="22" y1="43" x2="46" y2="43"/>
+      <line x1="18" y1="50" x2="39" y2="50"/>
+      <line x1="12" y1="57" x2="32" y2="57"/>
+      <line x1="10" y1="64" x2="25" y2="64"/>
+    </g>
+    <!-- Swimmer walking/jogging away on the dry beach (right side) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Head with swim cap & goggles on forehead -->
+      <ellipse cx="72" cy="33" rx="4.5" ry="5.5" fill="#FFFFFF" transform="rotate(15 72 33)"/>
+      <path d="M 69 29 L 77 30 M 71 27 L 76 28" stroke-width="3"/>
+      <!-- Leaning torso -->
+      <path d="M 69 39 L 62 56 L 68 57 L 72 40 Z" fill="#FFFFFF"/>
+      <!-- Swim trunks -->
+      <path d="M 61 55 L 69 56 L 68 65 L 60 64 Z" fill="#1E293B"/>
+      <!-- Swinging arms -->
+      <path d="M 71 42 L 79 44 M 69 45 L 76 51" fill="none"/>
+      <circle cx="80" cy="44" r="1.6" fill="#FFFFFF"/>
+      <circle cx="77" cy="51" r="1.6" fill="#FFFFFF"/>
+      <!-- Striding legs -->
+      <path d="M 62 64 L 56 76 L 49 82" fill="none"/>
+      <path d="M 67 64 L 73 70 L 70 79" fill="none"/>
+      <ellipse cx="48" cy="83" rx="2.5" ry="1.5" fill="#FFFFFF"/>
+      <ellipse cx="69" cy="80" rx="2" ry="1.5" fill="#FFFFFF"/>
+    </g>
+    
+    </symbol>
+    <symbol id="icon-13-kompas-verantwoordelijkheid" viewBox="0 0 100 100">
+
+    <!-- Yellow Light Beams radiating left and right -->
+    <g stroke="#FACC15" stroke-width="3" stroke-linecap="round">
+      <line x1="14" y1="22" x2="36" y2="28"/>
+      <line x1="12" y1="30" x2="34" y2="31"/>
+      <line x1="14" y1="38" x2="36" y2="34"/>
+      <line x1="86" y1="22" x2="64" y2="28"/>
+      <line x1="88" y1="30" x2="66" y2="31"/>
+      <line x1="86" y1="38" x2="64" y2="34"/>
+    </g>
+    <!-- Lighthouse Base -->
+    <rect x="26" y="78" width="48" height="7" rx="2" fill="#F8FAFC" stroke="#0F2C4C" stroke-width="2.8"/>
+    <!-- Lighthouse Tower Body (White & Blue stripes) -->
+    <polygon points="36,78 41,38 59,38 64,78" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="2.8" stroke-linejoin="round"/>
+    <!-- Top Blue Stripe -->
+    <polygon points="40.2,44 59.8,44 61.1,54 38.9,54" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Bottom Blue Stripe -->
+    <polygon points="37.9,62 62.1,62 63.4,72 36.6,72" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Gallery deck -->
+    <line x1="38" y1="38" x2="62" y2="38" stroke="#0F2C4C" stroke-width="3" stroke-linecap="round"/>
+    <!-- Lantern room with yellow glow -->
+    <rect x="43" y="25" width="14" height="13" fill="#FEF08A" stroke="#0F2C4C" stroke-width="2.5"/>
+    <line x1="47" y1="25" x2="47" y2="38" stroke="#0F2C4C" stroke-width="2"/>
+    <line x1="53" y1="25" x2="53" y2="38" stroke="#0F2C4C" stroke-width="2"/>
+    <!-- Blue Pitched Roof -->
+    <polygon points="39,25 50,16 61,25" fill="#1D4ED8" stroke="#0F2C4C" stroke-width="2.6" stroke-linejoin="round"/>
+    
+    </symbol>
+  </defs>
+
+  <!-- Base disc inside the wheel ring -->
+  <circle cx="440.0" cy="440.0" r="330.0" fill="#F8FAFC"/>
+
+  <!-- 3 Phase Wedges (Outer Zone) -->
+  <path d="M 525.41 121.24 A 330.0 330.0 0 0 1 673.35 673.35 L 530.51 530.51 A 128.0 128.0 0 0 0 473.13 316.36 Z" fill="url(#grad-leer)"/>
+  <path d="M 673.35 673.35 A 330.0 330.0 0 0 1 121.24 525.41 L 316.36 473.13 A 128.0 128.0 0 0 0 530.51 530.51 Z" fill="url(#grad-plan)"/>
+  <path d="M 121.24 525.41 A 330.0 330.0 0 0 1 525.41 121.24 L 473.13 316.36 A 128.0 128.0 0 0 0 316.36 473.13 Z"  fill="url(#grad-doe)"/>
+
+  <!-- 3 Phase Inner Ring Segments (LEER / PLAN / DOE band) -->
+  <path d="M 473.13 316.36 A 128.0 128.0 0 0 1 530.51 530.51 L 492.33 492.33 A 74.0 74.0 0 0 0 459.15 368.52 Z" fill="#FDE68A" fill-opacity="0.9"/>
+  <path d="M 530.51 530.51 A 128.0 128.0 0 0 1 316.36 473.13 L 368.52 459.15 A 74.0 74.0 0 0 0 492.33 492.33 Z" fill="#BAE6FD" fill-opacity="0.9"/>
+  <path d="M 316.36 473.13 A 128.0 128.0 0 0 1 473.13 316.36 L 459.15 368.52 A 74.0 74.0 0 0 0 368.52 459.15 Z"  fill="#FECDD3" fill-opacity="0.9"/>
+
+  <!-- 12 Radial Sector Boundary Lines (between the circles, matching page 1 sketch) -->
+  <g>
+    <line x1="459.2" y1="368.5" x2="525.4" y2="121.2" stroke="#0F2C4C" stroke-width="3.2" stroke-opacity="0.85"/>
+    <line x1="530.5" y1="349.5" x2="673.3" y2="206.7" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="563.6" y1="406.9" x2="758.8" y2="354.6" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="563.6" y1="473.1" x2="758.8" y2="525.4" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="492.3" y1="492.3" x2="673.3" y2="673.3" stroke="#0F2C4C" stroke-width="3.2" stroke-opacity="0.85"/>
+    <line x1="473.1" y1="563.6" x2="525.4" y2="758.8" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="406.9" y1="563.6" x2="354.6" y2="758.8" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="349.5" y1="530.5" x2="206.7" y2="673.3" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="368.5" y1="459.2" x2="121.2" y2="525.4" stroke="#0F2C4C" stroke-width="3.2" stroke-opacity="0.85"/>
+    <line x1="316.4" y1="406.9" x2="121.2" y2="354.6" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="349.5" y1="349.5" x2="206.7" y2="206.7" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+    <line x1="406.9" y1="316.4" x2="354.6" y2="121.2" stroke="#475569" stroke-width="1.8" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- Inner Phase Band Concentric Rings -->
+  <circle cx="440.0" cy="440.0" r="128.0" fill="none" stroke="#0F2C4C" stroke-width="3"/>
+
+  <!-- Curved Phase Labels inside the Inner Band -->
+  <g>
+    <text x="523.2" y="382.8" fill="#92400E" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(55.5 523.2 382.8)">L</text>
+    <text x="534.0" y="403.0" fill="#92400E" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(68.5 534.0 403.0)">E</text>
+    <text x="539.9" y="425.1" fill="#92400E" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(81.5 539.9 425.1)">E</text>
+    <text x="540.7" y="447.9" fill="#92400E" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(94.5 540.7 447.9)">R</text>
+    <text x="382.8" y="523.2" fill="#075985" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(34.5 382.8 523.2)">P</text>
+    <text x="403.0" y="534.0" fill="#075985" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(21.5 403.0 534.0)">L</text>
+    <text x="425.1" y="539.9" fill="#075985" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(8.5 425.1 539.9)">A</text>
+    <text x="447.9" y="540.7" fill="#075985" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(-4.5 447.9 540.7)">N</text>
+    <text x="353.4" y="388.0" fill="#9F1239" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(301.0 353.4 388.0)">D</text>
+    <text x="368.6" y="368.6" fill="#9F1239" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(315.0 368.6 368.6)">O</text>
+    <text x="388.0" y="353.4" fill="#9F1239" font-size="18.5" font-weight="900" text-anchor="middle" dominant-baseline="central" transform="rotate(329.0 388.0 353.4)">E</text>
+  </g>
+
+  <!-- 12 Clickable Keyword Wedges -->
+  <a href="#leer-1" class="wheel-wedge">
+    <path d="M 512.99 167.61 A 282.0 282.0 0 0 1 639.40 240.60 L 530.51 349.49 A 128.0 128.0 0 0 0 473.13 316.36 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="540.0" y="266.8" fill="#78350F" font-size="14.5" font-weight="800" text-anchor="middle" transform="rotate(-60.0 540.0 266.8)"><tspan x="540.0" dy="-3">&gt; 800m</tspan><tspan x="540.0" dy="16" font-size="12" font-weight="700">&gt; 15&#x27;</tspan></text>
+  </a>
+  <a href="#leer-2" class="wheel-wedge">
+    <path d="M 639.40 240.60 A 282.0 282.0 0 0 1 712.39 367.01 L 563.64 406.87 A 128.0 128.0 0 0 0 530.51 349.49 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="613.2" y="340.0" dy="5" fill="#78350F" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(-30.0 613.2 340.0)">Tijd &amp; Zicht</text>
+  </a>
+  <a href="#leer-3" class="wheel-wedge">
+    <path d="M 712.39 367.01 A 282.0 282.0 0 0 1 712.39 512.99 L 563.64 473.13 A 128.0 128.0 0 0 0 563.64 406.87 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="640.0" y="440.0" dy="5" fill="#78350F" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(0.0 640.0 440.0)">Kalmte</text>
+  </a>
+  <a href="#leer-4" class="wheel-wedge">
+    <path d="M 712.39 512.99 A 282.0 282.0 0 0 1 639.40 639.40 L 530.51 530.51 A 128.0 128.0 0 0 0 563.64 473.13 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="613.2" y="540.0" fill="#78350F" font-size="14.5" font-weight="800" text-anchor="middle" transform="rotate(30.0 613.2 540.0)"><tspan x="613.2" dy="-3">Stroming</tspan><tspan x="613.2" dy="16" font-size="12" font-weight="700">(De Camion)</tspan></text>
+  </a>
+  <a href="#plan-1" class="wheel-wedge">
+    <path d="M 639.40 639.40 A 282.0 282.0 0 0 1 512.99 712.39 L 473.13 563.64 A 128.0 128.0 0 0 0 530.51 530.51 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="540.0" y="613.2" dy="5" fill="#0C4A6E" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(60.0 540.0 613.2)">Timing</text>
+  </a>
+  <a href="#plan-2" class="wheel-wedge">
+    <path d="M 512.99 712.39 A 282.0 282.0 0 0 1 367.01 712.39 L 406.87 563.64 A 128.0 128.0 0 0 0 473.13 563.64 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="440.0" y="640.0" dy="5" fill="#0C4A6E" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(90.0 440.0 640.0)">Samen</text>
+  </a>
+  <a href="#plan-3" class="wheel-wedge">
+    <path d="M 367.01 712.39 A 282.0 282.0 0 0 1 240.60 639.40 L 349.49 530.51 A 128.0 128.0 0 0 0 406.87 563.64 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="340.0" y="613.2" dy="5" fill="#0C4A6E" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(-60.0 340.0 613.2)">Materiaal</text>
+  </a>
+  <a href="#plan-4" class="wheel-wedge">
+    <path d="M 240.60 639.40 A 282.0 282.0 0 0 1 167.61 512.99 L 316.36 473.13 A 128.0 128.0 0 0 0 349.49 530.51 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="266.8" y="540.0" dy="5" fill="#0C4A6E" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(-30.0 266.8 540.0)">Plek</text>
+  </a>
+  <a href="#doe-1" class="wheel-wedge">
+    <path d="M 167.61 512.99 A 282.0 282.0 0 0 1 167.61 367.01 L 316.36 406.87 A 128.0 128.0 0 0 0 316.36 473.13 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="240.0" y="440.0" dy="5" fill="#881337" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(0.0 240.0 440.0)">Diepte</text>
+  </a>
+  <a href="#doe-2" class="wheel-wedge">
+    <path d="M 167.61 367.01 A 282.0 282.0 0 0 1 240.60 240.60 L 349.49 349.49 A 128.0 128.0 0 0 0 316.36 406.87 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="266.8" y="340.0" dy="5" fill="#881337" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(30.0 266.8 340.0)">0,0%</text>
+  </a>
+  <a href="#doe-3" class="wheel-wedge">
+    <path d="M 240.60 240.60 A 282.0 282.0 0 0 1 367.01 167.61 L 406.87 316.36 A 128.0 128.0 0 0 0 349.49 349.49 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="340.0" y="266.8" dy="5" fill="#881337" font-size="15" font-weight="800" text-anchor="middle" transform="rotate(60.0 340.0 266.8)">Check</text>
+  </a>
+  <a href="#doe-4" class="wheel-wedge">
+    <path d="M 367.01 167.61 A 282.0 282.0 0 0 1 512.99 167.61 L 473.13 316.36 A 128.0 128.0 0 0 0 406.87 316.36 Z" fill="#FFFFFF" fill-opacity="0.01"/>
+    <text x="440.0" y="240.0" fill="#881337" font-size="14.5" font-weight="800" text-anchor="middle" transform="rotate(90.0 440.0 240.0)"><tspan x="440.0" dy="-3">Vandaag</tspan><tspan x="440.0" dy="16" font-size="12" font-weight="700">NIET.</tspan></text>
+  </a>
+
+  <!-- Bold Connecting Ring Linking the 12 Outer Circles (as drawn on page 1 sketch) -->
+  <circle cx="440.0" cy="440.0" r="330.0" fill="none" stroke="#0F2C4C" stroke-width="8"/>
+
+  <!-- 12 Outer Icon Nodes -->
+  <!-- Punt 1: leer-1 (&gt; 800m) -->
+  <a href="#leer-1" class="wheel-node" aria-label="Punt 1: &gt; 800m">
+    <circle cx="605.0" cy="154.2" r="56.0" fill="#FFFFFF" stroke="#F59E0B" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="605.0" cy="154.2" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-01-l1-afstand" x="562.0" y="111.2" width="86.0" height="86.0"/>
+    <circle cx="558.0" cy="171.3" r="13.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="558.0" y="175.8" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">1</text>
+  </a>
+  <!-- Punt 2: leer-2 (Tijd &amp; Zicht) -->
+  <a href="#leer-2" class="wheel-node" aria-label="Punt 2: Tijd &amp; Zicht">
+    <circle cx="725.8" cy="275.0" r="56.0" fill="#FFFFFF" stroke="#F59E0B" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="725.8" cy="275.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-02-l2-tijd-en-zicht" x="682.8" y="232.0" width="86.0" height="86.0"/>
+    <circle cx="676.5" cy="266.3" r="13.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="676.5" y="270.8" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">2</text>
+  </a>
+  <!-- Punt 3: leer-3 (Kalmte) -->
+  <a href="#leer-3" class="wheel-node" aria-label="Punt 3: Kalmte">
+    <circle cx="770.0" cy="440.0" r="56.0" fill="#FFFFFF" stroke="#F59E0B" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="770.0" cy="440.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-03-l3-kalmte" x="727.0" y="397.0" width="86.0" height="86.0"/>
+    <circle cx="731.7" cy="407.9" r="13.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="731.7" y="412.4" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">3</text>
+  </a>
+  <!-- Punt 4: leer-4 (Stroming) -->
+  <a href="#leer-4" class="wheel-node" aria-label="Punt 4: Stroming">
+    <circle cx="725.8" cy="605.0" r="56.0" fill="#FFFFFF" stroke="#F59E0B" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="725.8" cy="605.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-04-l4-camion" x="682.8" y="562.0" width="86.0" height="86.0"/>
+    <circle cx="708.7" cy="558.0" r="13.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="708.7" y="562.5" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">4</text>
+  </a>
+  <!-- Punt 5: plan-1 (Timing) -->
+  <a href="#plan-1" class="wheel-node" aria-label="Punt 5: Timing">
+    <circle cx="605.0" cy="725.8" r="56.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="605.0" cy="725.8" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-05-p1-timing" x="562.0" y="682.8" width="86.0" height="86.0"/>
+    <circle cx="613.7" cy="676.5" r="13.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="613.7" y="681.0" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">5</text>
+  </a>
+  <!-- Punt 6: plan-2 (Samen) -->
+  <a href="#plan-2" class="wheel-node" aria-label="Punt 6: Samen">
+    <circle cx="440.0" cy="770.0" r="56.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="440.0" cy="770.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-06-p2-samen" x="397.0" y="727.0" width="86.0" height="86.0"/>
+    <circle cx="472.1" cy="731.7" r="13.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="472.1" y="736.2" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">6</text>
+  </a>
+  <!-- Punt 7: plan-3 (Materiaal) -->
+  <a href="#plan-3" class="wheel-node" aria-label="Punt 7: Materiaal">
+    <circle cx="275.0" cy="725.8" r="56.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="275.0" cy="725.8" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-07-p3-materiaal" x="232.0" y="682.8" width="86.0" height="86.0"/>
+    <circle cx="322.0" cy="708.7" r="13.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="322.0" y="713.2" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">7</text>
+  </a>
+  <!-- Punt 8: plan-4 (Plek) -->
+  <a href="#plan-4" class="wheel-node" aria-label="Punt 8: Plek">
+    <circle cx="154.2" cy="605.0" r="56.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="154.2" cy="605.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-08-p4-plek" x="111.2" y="562.0" width="86.0" height="86.0"/>
+    <circle cx="203.5" cy="613.7" r="13.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="203.5" y="618.2" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">8</text>
+  </a>
+  <!-- Punt 9: doe-1 (Diepte) -->
+  <a href="#doe-1" class="wheel-node" aria-label="Punt 9: Diepte">
+    <circle cx="110.0" cy="440.0" r="56.0" fill="#FFFFFF" stroke="#E11D48" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="110.0" cy="440.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-09-d1-diepte" x="67.0" y="397.0" width="86.0" height="86.0"/>
+    <circle cx="148.3" cy="472.1" r="13.5" fill="#E11D48" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="148.3" y="476.6" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">9</text>
+  </a>
+  <!-- Punt 10: doe-2 (0,0%) -->
+  <a href="#doe-2" class="wheel-node" aria-label="Punt 10: 0,0%">
+    <circle cx="154.2" cy="275.0" r="56.0" fill="#FFFFFF" stroke="#E11D48" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="154.2" cy="275.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-10-d2-alcohol" x="111.2" y="232.0" width="86.0" height="86.0"/>
+    <circle cx="171.3" cy="322.0" r="13.5" fill="#E11D48" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="171.3" y="326.5" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">10</text>
+  </a>
+  <!-- Punt 11: doe-3 (Check) -->
+  <a href="#doe-3" class="wheel-node" aria-label="Punt 11: Check">
+    <circle cx="275.0" cy="154.2" r="56.0" fill="#FFFFFF" stroke="#E11D48" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="275.0" cy="154.2" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-11-d3-check" x="232.0" y="111.2" width="86.0" height="86.0"/>
+    <circle cx="266.3" cy="203.5" r="13.5" fill="#E11D48" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="266.3" y="208.0" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">11</text>
+  </a>
+  <!-- Punt 12: doe-4 (Vandaag) -->
+  <a href="#doe-4" class="wheel-node" aria-label="Punt 12: Vandaag">
+    <circle cx="440.0" cy="110.0" r="56.0" fill="#FFFFFF" stroke="#E11D48" stroke-width="4" filter="url(#node-shadow)"/>
+    <circle cx="440.0" cy="110.0" r="52.5" fill="none" stroke="#0F2C4C" stroke-width="1.2" stroke-opacity="0.25"/>
+    <use href="#icon-12-d4-afbreken" x="397.0" y="67.0" width="86.0" height="86.0"/>
+    <circle cx="407.9" cy="148.3" r="13.5" fill="#E11D48" stroke="#FFFFFF" stroke-width="2.2"/>
+    <text x="407.9" y="152.8" fill="#FFFFFF" font-size="12.5" font-weight="800" text-anchor="middle">12</text>
+  </a>
+
+  <!-- Central Anchor Element: Filosofie (Vuurtoren / Eigen Verantwoordelijkheid) -->
+  <a href="#filosofie" class="wheel-node" aria-label="Onze Filosofie: Kennis &amp; Eigen Verantwoordelijkheid">
+    <circle cx="440.0" cy="440.0" r="74.0" fill="#FFFFFF" stroke="#0F2C4C" stroke-width="4" filter="url(#node-shadow)"/>
+    <use href="#icon-13-kompas-verantwoordelijkheid" x="392.0" y="386.0" width="96" height="96"/>
+    <rect x="388.0" y="471.0" width="104" height="20" rx="10" fill="#0F2C4C"/>
+    <text x="440.0" y="485.0" fill="#FFFFFF" font-size="11" font-weight="800" letter-spacing="1" text-anchor="middle">KOMPAS</text>
+  </a>
+</svg>

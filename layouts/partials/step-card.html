@@ -1,0 +1,55 @@
+<article id="{{ .Params.step_id | urlize }}" class="step-card phase-{{ .Params.phase_slug }}">
+  <div class="step-card-header">
+    <div class="step-icon-wrap">
+      <img src="{{ .Params.icon }}" alt="Icoon {{ .Params.step_id }}: {{ .Params.keyword }}" class="step-icon"
+        loading="lazy">
+      <span class="step-badge step-badge-{{ .Params.phase_slug }}">{{ .Params.number }} · {{ .Params.step_id }}</span>
+    </div>
+    <div class="step-title-group">
+      <h3 class="step-title">{{ .Title }}</h3>
+      <div class="step-meta">
+        <span class="step-phase-pill">{{ .Params.phase }}</span>
+        <span class="step-keyword-pill"><strong>{{ .Params.keyword }}</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vuistregel-box">
+    <div class="vuistregel-contour">--- DE VUISTREGEL ---</div>
+    <p class="vuistregel-text">{{ .Params.vuistregel }}</p>
+  </div>
+
+  <div class="step-body">
+    {{ .Content }}
+  </div>
+
+  {{ if .Params.has_camion_slider }}
+  <div class="camion-widget" aria-label="Interactieve Stromingssimulator De Camion">
+    <div class="camion-header">
+      <strong>Interactieve Simulator: Jij vs. "De Camion" (Getijdenstroom)</strong>
+      <span>Kies je zwemtempo en de getijdenstroom en zie wat er gebeurt ten opzichte van de strandpost:</span>
+    </div>
+    <div class="camion-controls">
+      <label>
+        <span>Jouw zwemtempo in stil water: <strong id="swim-pace-label">1:50 /100m (0,91 m/s)</strong></span>
+        <input type="range" id="swim-speed" min="0.5" max="1.4" step="0.05" value="0.90">
+      </label>
+      <label>
+        <span>Tegenstroom ("De Camion"): <strong id="current-speed-label">1,10 m/s (4,0 km/u)</strong></span>
+        <input type="range" id="current-speed" min="0.0" max="1.5" step="0.05" value="1.10">
+      </label>
+    </div>
+    <div class="camion-track">
+      <div class="camion-landmark">Strandpost</div>
+      <div class="camion-water">
+        <div id="camion-swimmer" class="camion-swimmer">🏊 Zwemmer →</div>
+      </div>
+    </div>
+    <p id="camion-result" class="camion-result"></p>
+  </div>
+  {{ end }}
+
+  <div class="step-review-bar">
+    <a href="#kompas-wiel" class="back-to-wheel">↑ Terug naar het kompas</a>
+  </div>
+</article>

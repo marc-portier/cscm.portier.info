@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="47" fill="#F0F9FF" stroke="#0284C7" stroke-width="3.5"/>
+  <!-- Water surface waves -->
+    <path d="M 6 60 Q 28 56, 50 60 T 94 58" fill="none" stroke="#0284C7" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M 12 68 Q 36 65, 58 68 T 88 67" fill="none" stroke="#BAE6FD" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Swimmer 1 (Front/Left) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 10 58 L 27 45 L 40 57 L 42 61" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 15 57 L 27 47 L 37 56" fill="none"/>
+      <circle cx="24" cy="54" r="4.5" fill="#F59E0B"/>
+    </g>
+    <!-- Swimmer 2 (Middle) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 35 57 L 52 44 L 65 56 L 67 60" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 40 56 L 52 46 L 62 55" fill="none"/>
+      <circle cx="49" cy="53" r="4.5" fill="#0284C7"/>
+    </g>
+    <!-- Swimmer 3 (Rear/Right) -->
+    <g stroke="#0F2C4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 59 57 L 76 44 L 89 56 L 91 60" fill="#E0F2FE" fill-opacity="0.6"/>
+      <path d="M 64 56 L 76 46 L 86 55" fill="none"/>
+      <circle cx="73" cy="53" r="4.5" fill="#EC4899"/>
+    </g>
+</svg>
